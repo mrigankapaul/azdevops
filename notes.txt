@@ -1,0 +1,11 @@
+Pipeline
+    - Executes the continuous integration process
+    - Run tasks when you submit the code
+    - Uses a build agent (Software that builds the software deploying) - Microsoft installable build agent
+    - End result of the build (Artifact)
+Build Agent 
+    - Builds Tests and deploys the code
+    - Run tasks in build definition
+    - Dev has the confidence to build
+    - ID commit that is the sourceof that issue
+
