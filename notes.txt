@@ -8,4 +8,87 @@ Build Agent
     - Run tasks in build definition
     - Dev has the confidence to build
     - ID commit that is the sourceof that issue
+Build Pipeline
+    Code (From a Repo - Azure Repor or other)
+    Steps
+    Artigfact
+Release Pipeline
+    Artifact 
+    Release it different env. (Test, Acceptance, Production)
+
+Pipeline 
+    Phases 
+        Tasks -> Agent Agent (Agent Pool)
+
+
+Test Plan
+    Test Suites 
+        Test Cases
+
+Language
+    .NET    
+    Python
+    Powershell
+    Gatlin
+
+Jobs - The smallest unit of a pipleline
+        are executed on a Azure Devops Agent
+    Each job needs at least one step 
+Jobs can then be combined into stages
+
+Pipleline definition
+    Stages: - Can run different computing platform
+        Jobs - Can be run on different computing platform
+            Steps
+Pool Jobs 
+    Assigning a Job to run on an agent - known as Agent Pool Jobs
+    Agent pools - can be dedicated or assigned system contained within the pools
+Server Jobs
+    Jobs are directly executed on thd Azure DevOps (or TFS) Server
+    Jobs are executed without an agent, so range of jobs are limited
+    Use 'pool:server' or "server:true' to use server jobs
+Agent Demand Jobs
+    Specifies what capabilities the agent must have (OS, application, version)
+    Multiple demands can be specified for each job (manually or automatically)
+
+(May be outdated)
+pool:
+    name: privatePool
+    demands:
+        - agent.os -equals linux
+        - python3 -equals /usr/bin/python3
+Steps:
+    - task: PythonScript@0
+    inputs:
+        scriptSource: inline
+        script: print("Hello World!!!")
+
+Container Jobs
+    Jobs can run inside a Docker container on Windows and linux
+    Provides more control over the jobs execution envrionment
+    Images can be retrieved from Docker hub or private registries
+
+Extending Azure Pipelines
+    Extensible via Visua Studio Marketplace
+    Integration with pre-existing platform
+    Allows integration with 3rd Party DevOps platform like Jenkins
+Data does not persists betweeen pipleline runs
+Agents are torn down after the pipleline is completed
+
+Self hosted agent
+    Provides much better control over application binaries
+    Data caches and configuration persists between runs
+    Cab be run on macOs, linux, windows and docker
+    Agent can be run either interractively or as a service
+    User is responsible for all management and configuration 
+    User is responsible for all major version upgrades
+
+
+Docker in Azure Pipleline
+    Agent acts as the docker host(Hosted Linux and VS 2017)
+    
+
+
+
+
 
